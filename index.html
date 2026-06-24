@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva Evolución — Inversión Inteligente en Lotes en Condominio</title>
+  <meta name="description" content="Agencia de Ventas Nueva Evolución S.A.S. Especialistas en lotes en condominio en el Caribe con planificación, seguridad jurídica y alta plusvalía.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter (Weights 200, 300, 400, 500, 600) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for clean, modern icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            anthracite: '#1A202C',
+            matteGold: '#D4AF37',
+            silverSoft: '#E2E8F0',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          letterSpacing: {
+            widest: '.25em',
+            extreme: '.4em'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Pure Minimalist Evolution Custom Styles */
+    body {
+      background-color: #FFFFFF;
+      color: #1A202C;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Clean scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFFFFF;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #E2E8F0;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+
+    /* Underline hover effect for navbar links */
+    .hover-underline-gold {
+      position: relative;
+    }
+    .hover-underline-gold::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1px;
+      bottom: -6px;
+      left: 0;
+      background-color: #D4AF37;
+      transform-origin: bottom right;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .hover-underline-gold:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    /* FAQ accordion styling */
+    .faq-transition {
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-matteGold/20 selection:text-anthracite">
+
+  <!-- BARRA DE NAVEGACIÓN (Navbar) -->
+  <nav class="w-full bg-white/90 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-6 flex items-center justify-between">
+      <!-- Logotipo -->
+      <a href="#inicio" class="flex items-center space-x-2 group">
+        <img src="LOGO YERLIS.svg" alt="Agencia de Ventas Nueva Evolución S.A.S." class="h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]" onerror="this.src='LOGO-NUEVA-EVOLUCION.png'">
+      </a>
+
+      <!-- Enlaces de Navegación (Escritorio) -->
+      <div class="hidden lg:flex items-center space-x-8 xl:space-x-12">
+        <a href="#inicio" class="text-[11px] font-normal uppercase tracking-widest text-anthracite hover:text-matteGold transition duration-300 hover-underline-gold">Inicio</a>
+        <a href="#proyectos" class="text-[11px] font-normal uppercase tracking-widest text-anthracite hover:text-matteGold transition duration-300 hover-underline-gold">Proyectos</a>
+        <a href="#nosotros" class="text-[11px] font-normal uppercase tracking-widest text-anthracite hover:text-matteGold transition duration-300 hover-underline-gold">Nosotros</a>
+        <a href="#invertir" class="text-[11px] font-normal uppercase tracking-widest text-anthracite hover:text-matteGold transition duration-300 hover-underline-gold">¿Por qué invertir?</a>
+        <a href="#faq" class="text-[11px] font-normal uppercase tracking-widest text-anthracite hover:text-matteGold transition duration-300 hover-underline-gold">FAQ</a>
+        <a href="#contacto" class="text-[11px] font-normal uppercase tracking-widest text-anthracite hover:text-matteGold transition duration-300 hover-underline-gold">Contacto</a>
+      </div>
+
+      <!-- Hamburguesa (Móvil) -->
+      <button id="mobile-menu-btn" class="lg:hidden text-anthracite focus:outline-none p-1" aria-label="Abrir menú de navegación">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 9h16.5m-16.5 6h16.5"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MENÚ MÓVIL (Overlay) -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-white flex flex-col justify-center items-center space-y-8 transition-all duration-500 ease-in-out opacity-0 pointer-events-none">
+    <button id="close-menu-btn" class="absolute top-6 right-6 text-anthracite focus:outline-none p-2" aria-label="Cerrar menú de navegación">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <a href="#inicio" class="mobile-link text-lg font-light uppercase tracking-[0.2em] text-anthracite hover:text-matteGold transition">Inicio</a>
+    <a href="#proyectos" class="mobile-link text-lg font-light uppercase tracking-[0.2em] text-anthracite hover:text-matteGold transition">Proyectos</a>
+    <a href="#nosotros" class="mobile-link text-lg font-light uppercase tracking-[0.2em] text-anthracite hover:text-matteGold transition">Nosotros</a>
+    <a href="#invertir" class="mobile-link text-lg font-light uppercase tracking-[0.2em] text-anthracite hover:text-matteGold transition">¿Por qué invertir?</a>
+    <a href="#faq" class="mobile-link text-lg font-light uppercase tracking-[0.2em] text-anthracite hover:text-matteGold transition">FAQ</a>
+    <a href="#contacto" class="mobile-link text-lg font-light uppercase tracking-[0.2em] text-anthracite hover:text-matteGold transition">Contacto</a>
+    
+    <div class="pt-8 text-center text-[10px] tracking-widest text-matteGold uppercase">
+      Agencia de Ventas Nueva Evolución S.A.S.
+    </div>
+  </div>
+
+  <!-- SECCIÓN 1: HERO / BANNER PRINCIPAL -->
+  <header id="inicio" class="relative min-h-[90vh] md:min-h-screen flex items-center overflow-hidden">
+    <!-- Fondo local con overlay editorial claro para contraste impecable con tipografía oscura -->
+    <div class="absolute inset-0 z-0">
+      <img src="IMAGEN BANNER HERO.jpeg" alt="Inversión Inteligente en el Caribe" class="w-full h-full object-cover object-center scale-[1.02] transition-transform duration-1000">
+      <!-- Degradado suave y blanco de alto contraste para mantener minimalismo absoluto y legibilidad en Gris Antracita -->
+      <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/20 md:from-white/95 md:via-white/70 md:to-transparent"></div>
+    </div>
+
+    <!-- Contenido Hero -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32 w-full">
+      <div class="max-w-2xl space-y-6">
+        <!-- Subtítulo / Encabezado pequeño -->
+        <div class="space-y-2">
+          <p class="text-[10px] md:text-xs font-semibold uppercase tracking-[0.25em] text-matteGold">
+            Inversión Inteligente en el Caribe
+          </p>
+          <div class="w-12 h-[1px] bg-matteGold"></div>
+        </div>
+        
+        <p class="text-xs md:text-sm tracking-widest uppercase text-anthracite/80 font-normal">
+          Lotes en condominio con planificación y respaldo legal.
+        </p>
+
+        <!-- Título Principal H1 -->
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-widest text-anthracite uppercase leading-[1.15]">
+          INVIERTE EN LOTES CON FUTURO.
+        </h1>
+
+        <!-- Párrafo Descriptivo -->
+        <p class="text-sm md:text-base text-anthracite/80 leading-relaxed font-light max-w-lg">
+          Proyectos inmobiliarios en condominio con plusvalía garantizada, ubicación estratégica y legalidad 100% respaldada. Pensados para construir y valorizar en el tiempo.
+        </p>
+
+        <!-- Botón de Llamado a la Acción -->
+        <div class="pt-6">
+          <a href="#proyectos" class="inline-block bg-anthracite hover:bg-matteGold text-white text-[11px] font-semibold uppercase tracking-widest px-8 py-4 transition-all duration-500 hover:shadow-lg">
+            Ver Proyectos
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ESPACIO EN NEGATIVO MASIVO (Separador minimalista de 32 a 40 de Tailwind) -->
+  <div class="py-20"></div>
+
+  <!-- SECCIÓN 2: NUESTROS PROYECTOS -->
+  <section id="proyectos" class="max-w-7xl mx-auto px-6 md:px-12">
+    <!-- Encabezado de Sección -->
+    <div class="mb-20 space-y-3">
+      <p class="text-[10px] font-bold tracking-widest text-matteGold uppercase">Oportunidades de Inversión</p>
+      <h2 class="text-2xl md:text-4xl font-light tracking-widest text-anthracite uppercase">
+        Descubre las mejores oportunidades de inversión.
+      </h2>
+    </div>
+
+    <!-- Bloques de Proyectos (Sin bordes ni fondos - Flotando Orgánicamente) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+      
+      <!-- Proyecto 1: Mayatt -->
+      <article class="group flex flex-col justify-between space-y-6">
+        <div class="space-y-4">
+          <!-- Contenedor de Imagen con Efecto Hover Minimalista -->
+          <div class="relative overflow-hidden aspect-[4/3] bg-silverSoft/20">
+            <!-- Etiqueta Disponible -->
+            <span class="absolute top-4 left-4 z-10 bg-white text-matteGold text-[9px] font-semibold tracking-widest uppercase px-3 py-1.5 border border-matteGold/30">
+              Disponible
+            </span>
+            <img src="Mayatt portada.jpeg" alt="Proyecto Mayatt" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          </div>
+          
+          <div class="space-y-2">
+            <h3 class="text-lg font-light tracking-widest text-anthracite uppercase">Mayatt</h3>
+            <p class="text-xs text-anthracite/60 tracking-widest uppercase">Lotes en condominio / Caribe</p>
+          </div>
+          
+          <p class="text-sm text-anthracite/75 leading-relaxed font-light">
+            Exclusivo condominio campestre en el Caribe con vías internas, áreas comunes planificadas, seguridad y diseño urbanístico de vanguardia para asegurar su valorización.
+          </p>
+        </div>
+        
+        <div class="pt-2">
+          <a href="mayatt.html" class="inline-flex items-center space-x-2 text-[10px] font-semibold uppercase tracking-widest text-anthracite hover:text-matteGold transition duration-300">
+            <span>Ver más</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Proyecto 2: Próximamente -->
+      <article class="group flex flex-col justify-between space-y-6">
+        <div class="space-y-4">
+          <div class="relative overflow-hidden aspect-[4/3] bg-silverSoft/10 flex items-center justify-center border border-dashed border-silverSoft">
+            <div class="text-center space-y-2">
+              <i class="fa-solid fa-lock text-silverSoft text-xl"></i>
+              <span class="block text-[10px] font-semibold tracking-widest text-anthracite/40 uppercase">Fase de Planeación</span>
+            </div>
+          </div>
+          
+          <div class="space-y-2">
+            <h3 class="text-lg font-light tracking-widest text-anthracite/50 uppercase">Próximamente</h3>
+            <p class="text-xs text-anthracite/40 tracking-widest uppercase">Lanzamiento Futuro</p>
+          </div>
+          
+          <p class="text-sm text-anthracite/50 leading-relaxed font-light">
+            Próximo lanzamiento en zonas de alta valorización. Inscríbase en nuestra lista de espera preferencial para recibir precios de preventa exclusiva.
+          </p>
+        </div>
+        
+        <div class="pt-2">
+          <a href="#contacto" onclick="selectProject('Proyecto Futuro')" class="inline-flex items-center space-x-2 text-[10px] font-semibold uppercase tracking-widest text-anthracite/50 hover:text-matteGold transition duration-300">
+            <span>Inscribirse en Preventa</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Proyecto 3: Próximamente -->
+      <article class="group flex flex-col justify-between space-y-6">
+        <div class="space-y-4">
+          <div class="relative overflow-hidden aspect-[4/3] bg-silverSoft/10 flex items-center justify-center border border-dashed border-silverSoft">
+            <div class="text-center space-y-2">
+              <i class="fa-solid fa-lock text-silverSoft text-xl"></i>
+              <span class="block text-[10px] font-semibold tracking-widest text-anthracite/40 uppercase">Estudio Legal</span>
+            </div>
+          </div>
+          
+          <div class="space-y-2">
+            <h3 class="text-lg font-light tracking-widest text-anthracite/50 uppercase">Próximamente</h3>
+            <p class="text-xs text-anthracite/40 tracking-widest uppercase">Lanzamiento Futuro</p>
+          </div>
+          
+          <p class="text-sm text-anthracite/50 leading-relaxed font-light">
+            Ubicación estratégica bajo riguroso estudio de títulos y planeación constructiva. Un nuevo concepto residencial que redefinirá el estándar en la zona.
+          </p>
+        </div>
+        
+        <div class="pt-2">
+          <a href="#contacto" onclick="selectProject('Proyecto Futuro')" class="inline-flex items-center space-x-2 text-[10px] font-semibold uppercase tracking-widest text-anthracite/50 hover:text-matteGold transition duration-300">
+            <span>Registrar Interés</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ESPACIO EN NEGATIVO MASIVO -->
+  <div class="py-20"></div>
+
+  <!-- SECCIÓN 3: ¿POR QUÉ INVERTIR EN LOTES? -->
+  <section id="invertir" class="max-w-7xl mx-auto px-6 md:px-12">
+    <!-- Encabezado de Sección -->
+    <div class="max-w-3xl space-y-6 mb-24">
+      <p class="text-[10px] font-bold tracking-widest text-matteGold uppercase">Visión de Inversión</p>
+      <h2 class="text-2xl md:text-4xl font-light tracking-widest text-anthracite uppercase">
+        ¿Por qué invertir en Lotes en Condominio?
+      </h2>
+      <p class="text-base text-anthracite/85 leading-relaxed font-light italic pl-4 border-l border-matteGold/30">
+        "Invertir en un lote dentro de un condominio es una decisión distinta a comprar tierra sin planificación. Aquí hay reglas, diseño y una visión común que protege la inversión en el tiempo."
+      </p>
+    </div>
+
+    <!-- Pilares de Inversión (3 columnas, sin líneas gruesas, diseño minimalista) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+      
+      <!-- Pilar 1 -->
+      <div class="space-y-4">
+        <div class="text-4xl font-extralight tracking-widest text-matteGold/30">01</div>
+        <h3 class="text-base font-medium tracking-widest text-anthracite uppercase pb-2 border-b border-silverSoft/50">
+          Planeación y orden urbano
+        </h3>
+        <p class="text-sm text-anthracite/75 leading-relaxed font-light">
+          Nuestros proyectos están desarrollados como condominios, con vías internas, zonas comunes y normas de construcción definidas desde el inicio. Esto evita el desorden, mantiene la armonía del proyecto y favorece la valorización.
+        </p>
+      </div>
+
+      <!-- Pilar 2 -->
+      <div class="space-y-4">
+        <div class="text-4xl font-extralight tracking-widest text-matteGold/30">02</div>
+        <h3 class="text-base font-medium tracking-widest text-anthracite uppercase pb-2 border-b border-silverSoft/50">
+          Construcción con lineamientos claros
+        </h3>
+        <p class="text-sm text-anthracite/75 leading-relaxed font-light">
+          Cada condominio cuenta con estilos de fachada y reglas arquitectónicas que deben respetarse al construir. Esto garantiza coherencia visual, cuida el entorno y protege el valor de cada propiedad.
+        </p>
+      </div>
+
+      <!-- Pilar 3 -->
+      <div class="space-y-4">
+        <div class="text-4xl font-extralight tracking-widest text-matteGold/30">03</div>
+        <h3 class="text-base font-medium tracking-widest text-anthracite uppercase pb-2 border-b border-silverSoft/50">
+          Valorización con fundamento real
+        </h3>
+        <p class="text-sm text-anthracite/75 leading-relaxed font-light">
+          La valorización no depende solo del mercado, sino de la ubicación, el desarrollo del proyecto y el control constructivo. Un condominio bien planificado tiende a sostener y mejorar su valor con el tiempo.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ESPACIO EN NEGATIVO MASIVO -->
+  <div class="py-20"></div>
+
+  <!-- SECCIÓN 4: SOBRE NOSOTROS -->
+  <section id="nosotros" class="bg-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      
+      <!-- Columna de Filosofía -->
+      <div class="lg:col-span-7 space-y-6">
+        <p class="text-[10px] font-bold tracking-widest text-matteGold uppercase">Quiénes Somos</p>
+        <h2 class="text-2xl md:text-4xl font-light tracking-widest text-anthracite uppercase leading-tight">
+          Agencia de Ventas Nueva Evolución S.A.S.
+        </h2>
+        
+        <p class="text-sm md:text-base text-anthracite/85 leading-relaxed font-light">
+          Somos una empresa dedicada a acompañar decisiones de inversión en lotes en condominio, con enfoque en legalidad, planificación y desarrollo a largo plazo. Nuestro trabajo es seleccionar proyectos bien estructurados, con reglas claras y ubicación estratégica, para que invertir y construir sea un proceso seguro y con plusvalía garantizada.
+        </p>
+
+        <!-- Garantías con Checkmarks Finos sin bordes oscuros -->
+        <div class="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="flex items-start space-x-3">
+            <span class="text-matteGold mt-1"><i class="fa-solid fa-circle-check text-xs"></i></span>
+            <span class="text-xs tracking-wider text-anthracite/80 font-light leading-relaxed">
+              Legalidad 100% garantizada en todos nuestros proyectos.
+            </span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-matteGold mt-1"><i class="fa-solid fa-circle-check text-xs"></i></span>
+            <span class="text-xs tracking-wider text-anthracite/80 font-light leading-relaxed">
+              Ubicación estratégica y con alto potencial de valorización.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Métricas (Bloques tipográficos puros separados por espacio en blanco) -->
+      <div class="lg:col-span-5 grid grid-cols-1 gap-8 md:gap-12 pl-0 lg:pl-12">
+        <div class="border-l-2 border-matteGold/10 pl-6 space-y-1">
+          <p class="text-3xl md:text-4xl font-extralight tracking-widest text-anthracite">10+ Años</p>
+          <p class="text-[10px] uppercase tracking-widest text-anthracite/55">Años de experiencia</p>
+        </div>
+
+        <div class="border-l-2 border-matteGold/10 pl-6 space-y-1">
+          <p class="text-3xl md:text-4xl font-extralight tracking-widest text-anthracite">300+</p>
+          <p class="text-[10px] uppercase tracking-widest text-anthracite/55">Familias satisfechas</p>
+        </div>
+
+        <div class="border-l-2 border-matteGold/10 pl-6 space-y-1">
+          <p class="text-3xl md:text-4xl font-extralight tracking-widest text-anthracite">12% - 18%</p>
+          <p class="text-[10px] uppercase tracking-widest text-anthracite/55">Plusvalía anual promedio</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ESPACIO EN NEGATIVO MASIVO -->
+  <div class="py-20"></div>
+
+  <!-- SECCIÓN 5: PREGUNTAS FRECUENTES (FAQ) -->
+  <section id="faq" class="max-w-4xl mx-auto px-6">
+    <!-- Encabezado FAQ -->
+    <div class="text-center space-y-3 mb-16">
+      <p class="text-[10px] font-bold tracking-widest text-matteGold uppercase">Respuestas a tus Dudas</p>
+      <h2 class="text-2xl md:text-4xl font-light tracking-widest text-anthracite uppercase">
+        Preguntas Frecuentes
+      </h2>
+    </div>
+
+    <!-- Acordeón FAQ (Diseño minimalista abierto sin fondos oscuros) -->
+    <div class="space-y-0 border-t border-silverSoft/50">
+      
+      <!-- Pregunta 1 -->
+      <div class="border-b border-silverSoft/50 py-6">
+        <button class="w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleFaq(this)">
+          <h3 class="text-sm md:text-base font-medium tracking-wider text-anthracite group-hover:text-matteGold transition duration-300 pr-4">
+            ¿Qué diferencia hay entre comprar un lote en condominio y un lote común?
+          </h3>
+          <span class="text-matteGold text-sm transition-transform duration-300 font-light flex-shrink-0">
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </button>
+        <div class="faq-content overflow-hidden max-h-0 faq-transition opacity-0">
+          <p class="pt-4 text-sm text-anthracite/75 leading-relaxed font-light">
+            Un lote en condominio forma parte de un proyecto planificado con normas de construcción, zonas comunes, vías internas y reglas arquitectónicas definidas. Esto garantiza orden, valorización sostenida y protección de la inversión, a diferencia de un lote común sin planificación.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pregunta 2 -->
+      <div class="border-b border-silverSoft/50 py-6">
+        <button class="w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleFaq(this)">
+          <h3 class="text-sm md:text-base font-medium tracking-wider text-anthracite group-hover:text-matteGold transition duration-300 pr-4">
+            ¿Los proyectos cuentan con todos los permisos legales? / ¿Qué documentos legales respaldan la compra?
+          </h3>
+          <span class="text-matteGold text-sm transition-transform duration-300 font-light flex-shrink-0">
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </button>
+        <div class="faq-content overflow-hidden max-h-0 faq-transition opacity-0">
+          <p class="pt-4 text-sm text-anthracite/75 leading-relaxed font-light">
+            Sí. Absolutamente todos nuestros lotes cuentan con licencias urbanísticas aprobadas, escrituras públicas individuales registradas en la Oficina de Instrumentos Públicos, y el reglamento de propiedad horizontal debidamente constituido. Al comprar, se entrega el certificado de tradición y libertad correspondiente, respaldando su propiedad al 100%.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pregunta 3 -->
+      <div class="border-b border-silverSoft/50 py-6">
+        <button class="w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleFaq(this)">
+          <h3 class="text-sm md:text-base font-medium tracking-wider text-anthracite group-hover:text-matteGold transition duration-300 pr-4">
+            ¿Puedo construir libremente en mi lote?
+          </h3>
+          <span class="text-matteGold text-sm transition-transform duration-300 font-light flex-shrink-0">
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </button>
+        <div class="faq-content overflow-hidden max-h-0 faq-transition opacity-0">
+          <p class="pt-4 text-sm text-anthracite/75 leading-relaxed font-light">
+            Puede diseñar y construir su vivienda a su gusto, siempre y cuando se respeten los lineamientos establecidos en el reglamento y manual de construcción específico de cada condominio. Estas normas definen criterios visuales clave, como retiros de linderos, alturas y estilo de fachada, asegurando la armonía estética y protegiendo el valor de la copropiedad.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pregunta 4 -->
+      <div class="border-b border-silverSoft/50 py-6">
+        <button class="w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleFaq(this)">
+          <h3 class="text-sm md:text-base font-medium tracking-wider text-anthracite group-hover:text-matteGold transition duration-300 pr-4">
+            ¿Cómo funciona la valorización en estos proyectos? / ¿Cuál es la plusvalía promedio anual?
+          </h3>
+          <span class="text-matteGold text-sm transition-transform duration-300 font-light flex-shrink-0">
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </button>
+        <div class="faq-content overflow-hidden max-h-0 faq-transition opacity-0">
+          <p class="pt-4 text-sm text-anthracite/75 leading-relaxed font-light">
+            La valorización se incrementa a medida que avanza el desarrollo interno de las obras del condominio (pavimentación de vías, acometidas de redes de servicios y construcción de áreas comunes) junto con la consolidación y desarrollo general del Caribe. La plusvalía anual promedio estimada para nuestros proyectos oscila entre el 12% y el 18%.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pregunta 5 -->
+      <div class="border-b border-silverSoft/50 py-6">
+        <button class="w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleFaq(this)">
+          <h3 class="text-sm md:text-base font-medium tracking-wider text-anthracite group-hover:text-matteGold transition duration-300 pr-4">
+            ¿Cuánto tiempo tengo para construir?
+          </h3>
+          <span class="text-matteGold text-sm transition-transform duration-300 font-light flex-shrink-0">
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </button>
+        <div class="faq-content overflow-hidden max-h-0 faq-transition opacity-0">
+          <p class="pt-4 text-sm text-anthracite/75 leading-relaxed font-light">
+            No se exige un tiempo límite ni penalidades para iniciar la edificación de su vivienda. Muchos clientes invierten para beneficiarse exclusivamente de la valorización a mediano y largo plazo, mientras que otros planifican la construcción de su casa de recreo o vivienda permanente de acuerdo con sus flujos financieros personales.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pregunta 6 -->
+      <div class="border-b border-silverSoft/50 py-6">
+        <button class="w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleFaq(this)">
+          <h3 class="text-sm md:text-base font-medium tracking-wider text-anthracite group-hover:text-matteGold transition duration-300 pr-4">
+            ¿Ofrecen opciones de financiamiento?
+          </h3>
+          <span class="text-matteGold text-sm transition-transform duration-300 font-light flex-shrink-0">
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </button>
+        <div class="faq-content overflow-hidden max-h-0 faq-transition opacity-0">
+          <p class="pt-4 text-sm text-anthracite/75 leading-relaxed font-light">
+            Sí. Disponemos de planes flexibles de financiación directa que facilitan el pago fraccionado de la cuota inicial y del saldo total en cuotas mensuales cómodas, sin estudios crediticios complejos. Además, gestionamos la viabilidad para créditos de construcción a través de entidades financieras asociadas.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pregunta 7 -->
+      <div class="border-b border-silverSoft/50 py-6">
+        <button class="w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleFaq(this)">
+          <h3 class="text-sm md:text-base font-medium tracking-wider text-anthracite group-hover:text-matteGold transition duration-300 pr-4">
+            ¿Qué pasa si no construyo de inmediato?
+          </h3>
+          <span class="text-matteGold text-sm transition-transform duration-300 font-light flex-shrink-0">
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </button>
+        <div class="faq-content overflow-hidden max-h-0 faq-transition opacity-0">
+          <p class="pt-4 text-sm text-anthracite/75 leading-relaxed font-light">
+            Su lote seguirá incrementando su plusvalía a medida que el condominio avance y se asienten las construcciones de otros copropietarios. Únicamente deberá mantener al día la cuota de administración ordinaria mensual correspondiente para cubrir los costos de vigilancia privada 24/7 y el mantenimiento de las áreas comunes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pregunta 8 -->
+      <div class="border-b border-silverSoft/50 py-6">
+        <button class="w-full flex items-center justify-between text-left focus:outline-none group" onclick="toggleFaq(this)">
+          <h3 class="text-sm md:text-base font-medium tracking-wider text-anthracite group-hover:text-matteGold transition duration-300 pr-4">
+            ¿Cuáles son los costos adicionales además del precio del lote?
+          </h3>
+          <span class="text-matteGold text-sm transition-transform duration-300 font-light flex-shrink-0">
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </button>
+        <div class="faq-content overflow-hidden max-h-0 faq-transition opacity-0">
+          <p class="pt-4 text-sm text-anthracite/75 leading-relaxed font-light">
+            Además del precio acordado por el lote, los compradores asumen los gastos de escrituración y registro (notaría, impuesto de beneficencia y registro), los cuales corresponden aproximadamente al 3.5% o 4% del valor comercial declarado del negocio, cancelándose de forma directa en el trámite de firmas.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ESPACIO EN NEGATIVO MASIVO -->
+  <div class="py-20"></div>
+
+  <!-- SECCIÓN 6: SECCIÓN DE CONTACTO -->
+  <section id="contacto" class="max-w-4xl mx-auto px-6">
+    <div class="bg-white border-0 py-16 space-y-12">
+      <!-- Encabezado de Formulario -->
+      <div class="text-center space-y-4">
+        <p class="text-[10px] font-bold tracking-widest text-matteGold uppercase">Asesoría Personalizada</p>
+        <h2 class="text-2xl md:text-3xl font-light tracking-widest text-anthracite uppercase">Iniciar Inversión</h2>
+        <p class="text-sm text-anthracite/60 max-w-lg mx-auto font-light leading-relaxed">
+          Estamos listos para asesorarte en tu próxima inversión inmobiliaria. Completa el formulario y nuestro equipo se pondrá en contacto contigo.
+        </p>
+      </div>
+
+      <!-- Formulario -->
+      <form id="contact-form" class="space-y-8 max-w-2xl mx-auto" onsubmit="handleFormSubmit(event)">
+        <!-- Nombre y Correo -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="flex flex-col">
+            <label for="name" class="text-[10px] uppercase tracking-widest text-anthracite/60 font-semibold mb-2">Nombre Completo</label>
+            <input type="text" id="name" required class="bg-silverSoft text-anthracite px-4 py-3 rounded-none focus:outline-none focus:ring-1 focus:ring-matteGold transition duration-300 w-full placeholder-anthracite/30 font-light text-sm" placeholder="Ej. Juan Pérez">
+          </div>
+          <div class="flex flex-col">
+            <label for="email" class="text-[10px] uppercase tracking-widest text-anthracite/60 font-semibold mb-2">Correo Electrónico</label>
+            <input type="email" id="email" required class="bg-silverSoft text-anthracite px-4 py-3 rounded-none focus:outline-none focus:ring-1 focus:ring-matteGold transition duration-300 w-full placeholder-anthracite/30 font-light text-sm" placeholder="Ej. juan@email.com">
+          </div>
+        </div>
+
+        <!-- Teléfono y Proyecto -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="flex flex-col">
+            <label for="phone" class="text-[10px] uppercase tracking-widest text-anthracite/60 font-semibold mb-2">Teléfono Móvil</label>
+            <input type="tel" id="phone" required class="bg-silverSoft text-anthracite px-4 py-3 rounded-none focus:outline-none focus:ring-1 focus:ring-matteGold transition duration-300 w-full placeholder-anthracite/30 font-light text-sm" placeholder="Ej. +57 300 123 4567">
+          </div>
+          <div class="flex flex-col">
+            <label for="project" class="text-[10px] uppercase tracking-widest text-anthracite/60 font-semibold mb-2">Proyecto de Interés</label>
+            <div class="relative">
+              <select id="project" required class="bg-silverSoft text-anthracite px-4 py-3 rounded-none focus:outline-none focus:ring-1 focus:ring-matteGold transition duration-300 w-full font-light text-sm appearance-none cursor-pointer">
+                <option value="" disabled selected class="text-anthracite/40">Seleccione un proyecto</option>
+                <option value="Mayatt" class="text-anthracite">Mayatt (Disponible)</option>
+                <option value="Proyecto Futuro" class="text-anthracite">Proyecto Futuro (Próximamente)</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-anthracite/55">
+                <i class="fa-solid fa-chevron-down text-xs"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mensaje -->
+        <div class="flex flex-col">
+          <label for="message" class="text-[10px] uppercase tracking-widest text-anthracite/60 font-semibold mb-2">Mensaje</label>
+          <textarea id="message" rows="5" required class="bg-silverSoft text-anthracite px-4 py-3 rounded-none focus:outline-none focus:ring-1 focus:ring-matteGold transition duration-300 w-full placeholder-anthracite/30 font-light text-sm resize-none" placeholder="Escriba aquí los detalles de su consulta..."></textarea>
+        </div>
+
+        <!-- Botón Enviar (Diseño plano Gris Antracita) -->
+        <div class="text-center pt-4">
+          <button type="submit" class="w-full sm:w-auto bg-anthracite hover:bg-matteGold text-white text-[11px] font-semibold uppercase tracking-widest px-12 py-4 transition-all duration-300 hover:shadow-lg">
+            Enviar Mensaje
+          </button>
+        </div>
+      </form>
+
+      <!-- Mensaje de Éxito Oculto -->
+      <div id="form-success" class="hidden text-center py-12 space-y-4 max-w-md mx-auto">
+        <div class="w-16 h-16 bg-matteGold/10 text-matteGold rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fa-solid fa-check text-2xl animate-pulse"></i>
+        </div>
+        <h3 class="text-xl font-light tracking-widest text-anthracite uppercase">¡Mensaje Enviado!</h3>
+        <p class="text-sm text-anthracite/70 font-light leading-relaxed">
+          Gracias <span id="success-name" class="font-medium text-anthracite"></span> por su interés. Un asesor de <strong class="font-normal text-anthracite">Agencia de Ventas Nueva Evolución S.A.S.</strong> se comunicará con usted a la brevedad.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPACIO EN NEGATIVO MASIVO -->
+  <div class="py-20"></div>
+
+  <!-- SECCIÓN 7: FOOTER (PIE DE PÁGINA) -->
+  <footer class="bg-white border-t border-silverSoft/70">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
+      
+      <!-- Columna 1: Logo y Bio -->
+      <div class="lg:col-span-4 space-y-6">
+        <img src="LOGO YERLIS.svg" alt="Agencia de Ventas Nueva Evolución S.A.S." class="h-10 w-auto object-contain" onerror="this.src='LOGO-NUEVA-EVOLUCION.png'">
+        <p class="text-xs text-anthracite/70 leading-relaxed font-light">
+          Especialistas en inversión inmobiliaria con proyectos de lotes en condominio.
+        </p>
+        
+        <!-- Línea minimalista de redes de acento flotante -->
+        <div class="flex items-center space-x-6 pt-2">
+          <a href="https://wa.me/573007976037?text=Hola%20Yerlis,%20solicito%20asesoría%20sobre%20los%20lotes%20en%20condominio." target="_blank" class="text-anthracite hover:text-matteGold transition text-lg" aria-label="WhatsApp Corporativo">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://instagram.com/bienesyraices_7" target="_blank" class="text-anthracite hover:text-matteGold transition text-lg" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100063943360527" target="_blank" class="text-anthracite hover:text-matteGold transition text-lg" aria-label="Facebook Fanpage" title="Yerlis Paredes Brondy agente Inmobiliario">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="mailto:YerlisParedesbrondy@gmail.com" class="text-anthracite hover:text-matteGold transition text-lg" aria-label="Correo Corporativo">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+
+        <!-- Aliados Propfy -->
+        <div class="space-y-2 pt-4">
+          <span class="text-[9px] uppercase tracking-widest text-matteGold font-bold block">Aliados Propfy</span>
+          <img src="LOGO-PFY-BLANCO.svg" alt="Propfy Logo" class="h-5 w-auto object-contain opacity-80">
+        </div>
+      </div>
+
+      <!-- Columna 2: Navegación -->
+      <div class="lg:col-span-2 space-y-4">
+        <h4 class="text-[10px] uppercase tracking-widest text-matteGold font-bold">Navegación</h4>
+        <ul class="space-y-2.5 text-xs font-light text-anthracite/80">
+          <li><a href="#inicio" class="hover:text-matteGold transition">Inicio</a></li>
+          <li><a href="#nosotros" class="hover:text-matteGold transition">Nosotros</a></li>
+          <li><a href="#proyectos" class="hover:text-matteGold transition">Proyectos</a></li>
+          <li><a href="#invertir" class="hover:text-matteGold transition">¿Por qué invertir?</a></li>
+          <li><a href="#faq" class="hover:text-matteGold transition">FAQ</a></li>
+          <li><a href="#contacto" class="hover:text-matteGold transition">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Proyectos -->
+      <div class="lg:col-span-2 space-y-4">
+        <h4 class="text-[10px] uppercase tracking-widest text-matteGold font-bold">Proyectos</h4>
+        <ul class="space-y-2.5 text-xs font-light text-anthracite/80">
+          <li><a href="#proyectos" class="hover:text-matteGold transition">Mayatt</a></li>
+          <li class="text-anthracite/40">Próximamente</li>
+          <li class="text-anthracite/40">Próximamente</li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Contacto Directo -->
+      <div class="lg:col-span-4 space-y-4">
+        <h4 class="text-[10px] uppercase tracking-widest text-matteGold font-bold">Contacto Directo</h4>
+        <ul class="space-y-3.5 text-xs font-light text-anthracite/80">
+          <li class="flex items-start space-x-2">
+            <span class="text-matteGold mt-0.5"><i class="fa-solid fa-user text-xs"></i></span>
+            <span><strong>Agente:</strong> Yerlis Paredes Brondy</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-matteGold mt-0.5"><i class="fa-solid fa-building text-xs"></i></span>
+            <span><strong>Agencia:</strong> Agencia de Ventas Nueva Evolución S.A.S.</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-matteGold mt-0.5"><i class="fa-brands fa-whatsapp text-xs"></i></span>
+            <a href="https://wa.me/573007976037?text=Hola%20Yerlis,%20solicito%20asesoría%20sobre%20los%20lotes%20en%20condominio." target="_blank" class="hover:text-matteGold transition">+57 300 797 6037</a>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-matteGold mt-0.5"><i class="fa-solid fa-phone text-xs"></i></span>
+            <a href="tel:+573007976037" class="hover:text-matteGold transition">+57 300 797 6037</a>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-matteGold mt-0.5"><i class="fa-solid fa-envelope text-xs"></i></span>
+            <a href="mailto:YerlisParedesbrondy@gmail.com" class="hover:text-matteGold transition break-all">YerlisParedesbrondy@gmail.com</a>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-matteGold mt-0.5"><i class="fa-solid fa-location-dot text-xs"></i></span>
+            <span>Campestre MZ 79 LT 8 Etapa 8</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-matteGold mt-0.5"><i class="fa-brands fa-facebook-f text-xs"></i></span>
+            <a href="https://www.facebook.com/profile.php?id=100063943360527" target="_blank" class="hover:text-matteGold transition">Yerlis Paredes Brondy agente Inmobiliario</a>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-matteGold mt-0.5"><i class="fa-solid fa-clock text-xs"></i></span>
+            <span>Lun a Vie: 9:00 AM - 7:00 PM<br>Sáb: 9:00 AM - 5:00 PM</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Barra Inferior -->
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-8 border-t border-silverSoft/50 flex flex-col sm:flex-row items-center justify-between text-[10px] text-anthracite/55 tracking-widest uppercase">
+      <p>© 2026 Agencia de Ventas Nueva Evolución S.A.S. Todos los derechos reservados.</p>
+      <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+        <a href="#inicio" class="hover:text-matteGold transition">Inicio</a>
+        <span>|</span>
+        <a href="#contacto" class="hover:text-matteGold transition">Asesoría</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOJANTE LINEAL DE WHATSAPP (Acento en Matte Gold) -->
+  <a href="https://wa.me/573007976037?text=Hola%20Yerlis,%20quiero%20más%20información%20sobre%20el%20proyecto%20Mayatt." target="_blank" class="fixed bottom-6 right-6 z-50 bg-white hover:bg-matteGold text-matteGold hover:text-white w-12 h-12 rounded-full flex items-center justify-center border border-matteGold transition-all duration-300 shadow-sm" aria-label="Enviar WhatsApp">
+    <i class="fa-brands fa-whatsapp text-2xl"></i>
+  </a>
+
+  <!-- CONTROLADORES JAVASCRIPT -->
+  <script>
+    // Menú Móvil
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function openMenu() {
+      mobileMenu.classList.remove('pointer-events-none');
+      mobileMenu.classList.add('opacity-100');
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.add('pointer-events-none');
+      mobileMenu.classList.remove('opacity-100');
+    }
+
+    mobileMenuBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    // Acordeón FAQ
+    function toggleFaq(button) {
+      const parent = button.parentElement;
+      const content = parent.querySelector('.faq-content');
+      const icon = button.querySelector('.text-matteGold i');
+      
+      const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+      // Cerrar todos los demás acordeones para un efecto más limpio
+      document.querySelectorAll('.faq-content').forEach(item => {
+        item.style.maxHeight = '0px';
+        item.classList.add('opacity-0');
+        const activeParentBtn = item.parentElement.querySelector('button .text-matteGold i');
+        if (activeParentBtn) {
+          activeParentBtn.className = 'fa-solid fa-plus';
+        }
+      });
+
+      if (!isOpen) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.classList.remove('opacity-0');
+        icon.className = 'fa-solid fa-minus';
+      } else {
+        content.style.maxHeight = '0px';
+        content.classList.add('opacity-0');
+        icon.className = 'fa-solid fa-plus';
+      }
+    }
+
+    // Seleccionar proyecto de interés automáticamente
+    function selectProject(projectName) {
+      const selectElement = document.getElementById('project');
+      if (selectElement) {
+        selectElement.value = projectName;
+      }
+    }
+
+    // Manejo de envío de formulario de contacto
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const project = document.getElementById('project').value;
+      const message = document.getElementById('message').value;
+
+      // Ocular formulario
+      const form = document.getElementById('contact-form');
+      form.classList.add('hidden');
+
+      // Mostrar mensaje de éxito con el nombre del cliente
+      const successDiv = document.getElementById('form-success');
+      const nameSpan = document.getElementById('success-name');
+      
+      nameSpan.textContent = name;
+      successDiv.classList.remove('hidden');
+
+      // Enviar datos opcionalmente (Simulación de backend)
+      console.log('Contacto Recibido:', { name, email, phone, project, message });
+    }
+  </script>
+</body>
+</html>
